@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片压缩工具</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">图片压缩工具</h1>
+        <p class="subtitle">简单、高效的图片压缩</p>
+        
+        <!-- 上传区域 -->
+        <div class="upload-container">
+            <label for="imageInput" class="upload-label">
+                <div class="upload-icon">
+                    <svg viewBox="0 0 24 24" width="24" height="24">
+                        <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+                    </svg>
+                </div>
+                <span>拖拽图片到这里，或点击上传</span>
+            </label>
+            <input type="file" id="imageInput" accept="image/*" style="display: none;">
+        </div>
+
+        <!-- 图片对比区域 (初始隐藏) -->
+        <div class="comparison-container" style="display: none;">
+            <!-- 原图 -->
+            <div class="image-box">
+                <div class="image-header">
+                    <h3>原图</h3>
+                    <span id="originalSize" class="size-badge">0 KB</span>
+                </div>
+                <div class="image-wrapper">
+                    <img id="originalPreview" alt="原图">
+                </div>
+            </div>
+
+            <!-- 控制面板 -->
+            <div class="control-panel">
+                <div class="quality-control">
+                    <div class="quality-header">
+                        <label for="qualitySlider">压缩质量</label>
+                        <span id="qualityValue">80%</span>
+                    </div>
+                    <input type="range" id="qualitySlider" min="1" max="100" value="80">
+                </div>
+                <div id="compressionRatio" class="compression-ratio">等待压缩</div>
+                <button id="downloadBtn" class="download-btn">
+                    <span class="btn-text">下载压缩图片</span>
+                    <svg class="download-icon" viewBox="0 0 24 24" width="16" height="16">
+                        <path fill="currentColor" d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- 压缩图 -->
+            <div class="image-box">
+                <div class="image-header">
+                    <h3>压缩预览</h3>
+                    <span id="compressedSize" class="size-badge">0 KB</span>
+                </div>
+                <div class="image-wrapper">
+                    <img id="compressedPreview" alt="压缩预览">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
